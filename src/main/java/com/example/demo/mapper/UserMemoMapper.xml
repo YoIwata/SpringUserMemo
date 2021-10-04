@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMemoMapper">
+  <select id="findAll" resultType="com.example.demo.domain.UserMemo">
+    select * from userMemo
+  </select>
+
+  <select id="findOne" resultType="com.example.demo.domain.UserMemo">
+    select * from userMemo where id= #{id}
+  </select>
+
+  <insert id="save" useGeneratedKeys="true" keyProperty="id">
+    insert into userMemo(userName, memo) values(#{userName}, #{memo})
+  </insert>
+
+  <update id="update">
+    update userMemo set userName=#{userName}, memo=#{memo} where id= #{id}
+  </update>
+
+  <delete id="delete">
+    delete from userMemo where id = #{id}
+  </delete>
+</mapper>
